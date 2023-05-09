@@ -1,0 +1,125 @@
+@import url(base.css);
+
+.__grupo-end {
+    align-items: center;
+    color: var(--verde-agua);
+    display: flex;
+    justify-content: center;
+    font-family: museo700;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.__grupo-end .__button-cancel {
+    border: none;
+    color: var(--verde-agua)  ;
+    font-size: 14px  ;
+    line-height: 20px  ;
+    margin-left: 9px;
+    width: 74px  ;
+    background-color: var(--branco);
+}
+
+.__grupo-end .__button-cancel:hover {
+    border: none;
+    background-color: transparent  ;
+    color: var(--verde)  ;
+}
+
+
+.__grupo-end>.__button-cancel:focus, .__grupo-end>.__button-submit:focus{
+    box-shadow: none;
+}
+
+.__grupo-end .__button-submit {
+    background-color: var(--verde-agua)  ;
+    border-color: var(--verde-agua)  ;
+    line-height: 20px  ;
+    font-size: 14px  ;
+    padding: 5px 13px  ;
+}
+
+.__grupo-end .__button-submit:hover {
+    background-color: var(--verde)  ;
+    border-color: var(--verde) ;  
+}
+
+.__grupo-end.__end-variante{
+    justify-content: start;
+    margin-top: 40px;
+}
+
+.__grupo-end.__end-variante a {
+    font-size: 14px;
+    font-family: museo;
+    font-weight: 500;
+    margin-left: 20px;
+    color: var(--azul);
+    margin-top: 0;
+    line-height: 20px;
+}
+
+/*adicionado a posteriore*/
+button * {
+    transition: opacity 0.3s ease-in;
+}
+
+/*adicionado a posteriore*/
+button .loader {
+    position: absolute;
+    display: block;
+    fill: transparent;
+    top: calc(50% - 0.75rem);
+    left: calc(50% - 0.75rem);
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: rotating 1.5s linear infinite;
+    display: none;
+    opacity: 0;
+}
+
+/*adicionado a posteriore*/
+@-webkit-keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/*adicionado a posteriore*/
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/*adicionado a posteriore*/
+button.loading span {
+    color: transparent;
+    opacity: 0;
+}
+
+/*adicionado a posteriore*/
+button.loading .loader {
+    fill: transparent;
+    display: block;
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 480px) {
+    .__grupo-end.__end-variante {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .__grupo-end.__end-variante a{
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,18 @@
+.nivel-processando {
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+}
+
+.nivel-negado {
+  color: #dc3545;
+  background-color: transparent;
+  background-image: none;
+  border-color: #dc3545;
+}
+
+.nivel-aprovado {
+  color: #28a745;
+  border-color: #28a745;
+}
