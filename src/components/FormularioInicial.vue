@@ -2,12 +2,14 @@
 import HeaderCarioca from './HeaderCarioca.vue';
 import GrupoIdentificacao from './GrupoIdentificacao.vue';
 import { defineComponent } from 'vue';
+import CamposFormulario from './CamposFormulario.vue';
 
 export default defineComponent({
   name: 'FormularioInicial',
   components: {
     HeaderCarioca,
-    GrupoIdentificacao
+    GrupoIdentificacao,
+    CamposFormulario
   },
   data() {
     return {
@@ -22,7 +24,8 @@ export default defineComponent({
   <main>
     <div class="__container">
         <GrupoIdentificacao />
-        <router-view> </router-view>
+        <CamposFormulario />
+        <!-- <router-view> </router-view> -->
     </div>
   </main>
 </template>

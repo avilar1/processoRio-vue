@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormularioInicialView from '../views/FormularioInicialView.vue'
 import EntradaTesteView from '../views/EntradaTesteView.vue'
+import CamposFormularioViewVue from '@/views/CamposFormularioView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -23,7 +24,12 @@ const router = createRouter({
       path: '/form',
       name: 'form',
       component: FormularioInicialView
-    }
+    },
+    {
+      path: '/campos',
+      name: 'campos',
+      component: CamposFormularioViewVue
+    },
   ]
 })
 
