@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 export default defineComponent({
-  name: 'GrupoIdentificacao',
+  name: 'MinhasSolicitacoes',
 
 
 
@@ -37,20 +37,25 @@ export default defineComponent({
     //   .catch(function (error) {
     //     console.log(error);
     //   });
-    axios 
-      .get('http://localhost:8080/sigaex/public/app/peticionamentoJ', {
-        params: {
-          loginDiscreto: 1,
-          token: 'ikcN3glU6qlzsuJ3UlZw1xvwkOkytUBiHskzhTx2maJXfVCilFBxPyDmWcq4d5BN',
-          url: 'NTAwMDA='
-    },
-    headers: {
-      Accept: 'application/json, text/plain, */*',
-      "Access-Control-Allow-Origin": "*"
-    }
-      })
-      .then((response: any) => (this.info = response.data.hashMap.freeMarkerModelo))
-      .catch(error => console.log(error))
+
+    //funciona//
+      axios 
+        .get('http://localhost:8080/sigaex/public/app/minhassolicitacoesJson', {
+          params: {
+            // loginDiscreto: 1,
+            // token: 'ikcN3glU6qlzsuJ3UlZw1xvwkOkytUBiHskzhTx2maJXfVCilFBxPyDmWcq4d5BN',
+            // url: 'NTAwMDA='
+      },
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        "Access-Control-Allow-Origin": "*",
+        
+
+      }
+        })
+        .then((response: any) => (this.info = response))
+        .catch(error => console.log(error))
+    
   }
 })
 
@@ -59,7 +64,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <div v-html="info"></div>
+  <main>
+    <div class="__container">
+      {{ info }}
+      <!-- <router-view> </router-view> -->
+    </div>
+  </main>
 </template>
 
 
