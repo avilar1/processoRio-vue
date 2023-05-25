@@ -37,29 +37,46 @@ export default defineComponent({
     //   .catch(function (error) {
     //     console.log(error);
     //   });
-    axios 
-      .get('http://localhost:8080/sigaex/public/app/peticionamentoJ', {
+
+    axios
+      .get('/api/sigaex/public/app/peticionamentoJ', {
         params: {
           loginDiscreto: 1,
           token: 'ikcN3glU6qlzsuJ3UlZw1xvwkOkytUBiHskzhTx2maJXfVCilFBxPyDmWcq4d5BN',
           url: 'NTAwMDA='
-    },
-    headers: {
-      Accept: 'application/json, text/plain, */*',
-      "Access-Control-Allow-Origin": "*"
-    }
+        },
       })
-      .then((response: any) => (this.info = response.data.hashMap.freeMarkerModelo))
-      .catch(error => console.log(error))
-  }
-})
+      .then((response: any) => {
+        this.info = response.data.hashMap.freeMarkerModelo;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    //   axios 
+    //     .get('http://localhost:8080/sigaex/public/app/peticionamentoJ', {
+    //       params: {
+    //         loginDiscreto: 1,
+    //         token: 'ikcN3glU6qlzsuJ3UlZw1xvwkOkytUBiHskzhTx2maJXfVCilFBxPyDmWcq4d5BN',
+    //         url: 'NTAwMDA='
+    //   },
+    //   headers: {
+    //     Accept: 'application/json, text/plain, */*',
+    //     "Access-Control-Allow-Origin": "*"
+    //   }
+    //     })
+    //     .then((response: any) => (this.info = response.data.hashMap.freeMarkerModelo))
+    //     .catch(error => console.log(error))
+    // }
+    }
+  })
 
 
 
 </script>
 
 <template>
-  <div v-html="info"></div>
+  <div v-html="info" class="__grupo-camp"></div>
 </template>
 
 

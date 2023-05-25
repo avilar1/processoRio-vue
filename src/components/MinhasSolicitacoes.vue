@@ -12,50 +12,59 @@ export default defineComponent({
   data() {
 
     return {
-      xmls: `'<?xml version="1.0" encoding="utf-8"?>\n<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">\n  <soap:Body>\n    <NumberToWords xmlns="http://www.dataaccess.com/webservicesserver/">\n      <ubiNum>500</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>';`,
-      info: null,
+      info: '',
       config: {
-        method: 'post',
-        maxBodyLength: Infinity,
-        url: 'https://www.dataaccess.com/webservicesserver/NumberConversion.wso',
+        method: 'POST',
+        url: '/api/sigaex/servicos/ExService',
         headers: {
           'Content-Type': 'text/xml; charset=utf-8',
-          'Access-Control-Allow-Origin': '*'
 
         },
-        data: this.xmls
+        data: `<?xml version="1.0" encoding="utf-8"?>\n
+              <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:impl="http://impl.service.ex.siga.jfrj.gov.br/">\n
+                <soapenv:Header/>\n
+                <soapenv:Body>\n 
+                   <impl:obterTodasSolicitacoesPeticionamento>\n
+                      <!--Optional:-->\n
+                        <arg0>2MzC1NZv6ouvon84jVrjiwT0z-9d978UwQ5hBGF93PbYPokAjBcKKIbkcS_8PX2wxszf0AQTDfw-L1_HDjUeDg</arg0>\n
+                      <!--Optional:-->\n
+                        <arg1>18043287740</arg1>\n
+                      <!--Optional:-->\n
+                        <arg2>2018-01-10T15:51:24</arg2>\n
+                    </impl:obterTodasSolicitacoesPeticionamento>\n
+                </soapenv:Body>\n
+              </soapenv:Envelope> \n`,
       }
 
     }
   },
   mounted() {
 
-    // axios(this.config)
-    //   .then(function (response) {
-    //     console.log(JSON.stringify(response.data));
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    axios(this.config)
+      .then((response) => {
+        // console.log(JSON.stringify(response.data));
+        //this.info = response.data;
 
-    //funciona//
-      axios 
-        .get('http://localhost:8080/sigaex/public/app/minhassolicitacoesJson', {
-          params: {
-            // loginDiscreto: 1,
-            // token: 'ikcN3glU6qlzsuJ3UlZw1xvwkOkytUBiHskzhTx2maJXfVCilFBxPyDmWcq4d5BN',
-            // url: 'NTAwMDA='
-      },
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        "Access-Control-Allow-Origin": "*",
-        
+        const xmlResponse = response.data;
+        const startTag = '<return>';
+        const endTag = '</return>';
+        const startIndex = xmlResponse.indexOf(startTag) + startTag.length;
+        const endIndex = xmlResponse.indexOf(endTag);
 
-      }
-        })
-        .then((response: any) => (this.info = response))
-        .catch(error => console.log(error))
-    
+        const jsonResponse = xmlResponse.substring(startIndex, endIndex);
+        const parsedResponse = JSON.parse(jsonResponse);
+
+        this.info = parsedResponse;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    //o de baixo funciona//
+    // axios 
+    //   .get('/api/sigaex/public/app/minhassolicitacoesJson')
+    //   .then((response: any) => (this.info = response))
+    //   .catch(error => console.log(error))
+
   }
 })
 
@@ -67,7 +76,7 @@ export default defineComponent({
   <main>
     <div class="__container">
       {{ info }}
-      <!-- <router-view> </router-view> -->
+
     </div>
   </main>
 </template>

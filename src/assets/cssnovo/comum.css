@@ -12,6 +12,10 @@
     margin-bottom: 0px;
 }
 
+label.__label-comum.form-check-label {
+    margin-left: 35px;
+}
+
 .__container h2 {
     margin-bottom: 20px;
     color: var(--cinza-escuro-variante);
@@ -51,6 +55,10 @@
 
 .__input {
     margin-top: 5px;
+}
+
+input.form-check-input.__input {
+    margin-right: 5px;
 }
 
 .__el-comum {
@@ -187,7 +195,9 @@ fieldset .form-control::placeholder {
 
         margin-top: 5px;
     }
-    
 
+    label.__label-comum.form-check-label {
+        margin-left: 22px;
+    }
 
 }

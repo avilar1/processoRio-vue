@@ -13,7 +13,7 @@ select.form-control {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
-    background-image: url("../img/chevron-down.svg");
+    background-image: url("../../../static/img/chevron-down.svg");
     background-repeat: no-repeat;
     background-position-x: 98%;
     background-position-y: 5px;
@@ -162,6 +162,10 @@ fieldset [data-campo="bairro"].__label-comum {
         gap: 0;
         width: 100%;
 
+    }
+
+    fieldset .form-check-variante {
+        align-items: flex-start;
     }
 
     fieldset>.__label-comum {

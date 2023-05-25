@@ -120,6 +120,7 @@ thead{
 }
 
 thead tr th {
+    cursor: pointer;
     line-height: 20px;
 }
 
