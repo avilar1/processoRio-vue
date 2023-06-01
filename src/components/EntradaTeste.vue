@@ -3,12 +3,17 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'FormularioInicial',
+  name: 'EntradaTeste',
   components: {
   },
   data() {
     return {
+      idservico: '50000',
+      siglaDocumento: 'REQ-OFI-2023/00007',
     };
+  },
+  computed: {
+    
   }
 });
 
@@ -19,11 +24,11 @@ export default defineComponent({
       <h2>página apenas para orientar o direcionamento para os links. Segue abaixo:</h2>
       <img :src="'/static/img/cat-png-40363.png'" alt="foto de um gato" style="height: 150px; width: 121px; float: left; shape-outside: url(/static/img/cat-png-40363.png);">
       <ul>
-        <li><RouterLink to="/form"> Formulario</RouterLink></li>
+        <li><RouterLink :to="`/form/${idservico}`"> Formulario</RouterLink></li>
         <li><RouterLink to="/minhassolicitacoes"> Lista de solicitações do usuário</RouterLink></li>
         <li><RouterLink to="/apresentarrecurso"> Página para apresentar recurso</RouterLink></li>
         <li><RouterLink to="/cumprirexigencia"> >Página para cumprir exigência</RouterLink></li>
-        <li><RouterLink to="/detalhesolicitacao"> Página com detalhes da solicitação</RouterLink></li>
+        <li><RouterLink :to="`/detalhesolicitacao/${encodeURIComponent(siglaDocumento)}`"> Página com detalhes da solicitação</RouterLink></li>
         <li><RouterLink to="/confirmacao"> Página para confirmação da solicitação</RouterLink></li>
 
         

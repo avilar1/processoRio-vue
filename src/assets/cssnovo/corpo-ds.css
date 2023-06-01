@@ -86,7 +86,7 @@ body a {
 
 .__row-up {
     content: "";
-    background-image: url(../img/Vector.webp);
+    background-image: url(../../../static/img/Vector.webp);
     background-repeat: no-repeat;
     background-position-y: 3px;
     color: var(--verde-agua);
@@ -269,7 +269,7 @@ body a {
 .__statusRow {
     position: relative;
     padding-top: 20px;
-    display: flex;
+    /* display: flex; */
     margin-left: -4px;
 }
 
