@@ -18,6 +18,7 @@ import HeaderCarioca from './components/HeaderCarioca.vue';
 
 
 <style>
+@import 'assets/cssnovo/reset.css';
 @import 'assets/cssnovo/base.css';
 @import 'assets/cssnovo/comum.css';
 @import 'assets/cssnovo/corpo.css';

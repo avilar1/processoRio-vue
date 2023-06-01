@@ -4,6 +4,7 @@ import FormularioInicialView from '../views/FormularioInicialView.vue'
 import EntradaTesteView from '../views/EntradaTesteView.vue'
 import CamposFormularioViewVue from '@/views/CamposFormularioView.vue'
 import MinhasSolicitacoesView from '@/views/MinhasSolicitacoesView.vue'
+import DetalhesSolicitacaoView from '../views/DetalhesSolicitacaoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,10 @@ const router = createRouter({
       component: FormularioInicialView
     },
     {
+      path: '/detalhesolicitacao',
+      name: 'detalhesolicitacao',
+      component: DetalhesSolicitacaoView
+    }    {
       path: '/campos',
       name: 'campos',
       component: CamposFormularioViewVue
@@ -36,7 +41,7 @@ const router = createRouter({
       name: 'minhassolicitacoes',
       component: MinhasSolicitacoesView
     },
-  ]
+ ]
 })
 
 export default router
