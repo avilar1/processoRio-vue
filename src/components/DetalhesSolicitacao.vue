@@ -81,28 +81,6 @@ export default defineComponent({
       siglaProcesso: '',
       situacao: '',
 
-
-      // exemplo: 'inicio para retirar',
-      // atuado: true,
-      // siglaProcessos: 'ABC',
-      // d: {
-      //   dataSolicitacao: '12/12/2022',
-      //   servico: 'serviço',
-      //   orgao: 'órgão',
-      //   nomeSolicitante: 'nome do Solicitante',
-      //   cpfSolicitanteFormatado: '173.222.222-45',
-      //   nomeRepresentado: 'Nome do Rpresentado da Silva',
-      //   pessoaFisicaRepresentado: true,
-      //   documentoRepresentadoFormatado: '852.741.963-48',
-      //   descricaoSolicitacao: 'Descrição da solicitação',
-      //   protocoloInicial: 'Protocolo Inicial',
-      //   dataUltimaAtualizacao: '01/01/2002',
-      //   situacao: 'situação',
-      //   arquivado: true,
-      //   msgDetalhes: 'Mensagem Detalhe',
-      //   podePedirRecurso: true,
-      //   podeCumprirExigencia: true
-      //}
     };
   },
   methods: {
@@ -147,43 +125,14 @@ export default defineComponent({
         this.info = parsedResponse;
         console.log(parsedResponse);
 
-        this.matriculaSolicitante = parsedResponse.matriculaSolicitante;
-        this.arquivado = parsedResponse.arquivado;
-        this.assinado = parsedResponse.assinado;
-        this.autuado = parsedResponse.autuado;
-        this.cpfSolicitante = parsedResponse.cpfSolicitante;
-        this.dataSolicitacao = parsedResponse.dataSolicitacao;
-        this.dataUltimaAtualizacao = parsedResponse.dataUltimaAtualizacao;
-        this.descricaoSolicitacao = parsedResponse.descricaoSolicitacao;
-        this.documentoRepresentado = parsedResponse.documentoRepresentado;
-        this.horaSolicitacao = parsedResponse.horaSolicitacao;
-        this.idDoc = parsedResponse.idDoc;
-        this.matriculaSolicitante = parsedResponse.matriculaSolicitante;
-        this.msgDetalhes = parsedResponse.msgDetalhes;
-        this.nivelSituacao = parsedResponse.nivelSituacao;
-        this.nomeRepresentado = parsedResponse.nomeRepresentado;
-        this.nomeSolicitante = parsedResponse.nomeSolicitante;
-        this.numeroSolicitacao = parsedResponse.numeroSolicitacao;
-        this.orgao = parsedResponse.orgao;
-        this.pessoaFisicaRepresentado = parsedResponse.pessoaFisicaRepresentado;
-        this.podeApresentarPeticao = parsedResponse.podeApresentarPeticao;
-        this.podeCumprirExigencia = parsedResponse.podeCumprirExigencia;
-        this.podeDarCiencia = parsedResponse.podeDarCiencia;
-        this.podePedirRecurso = parsedResponse.podePedirRecurso;
-        this.possuiComunicadoPeticionamento = parsedResponse.possuiComunicadoPeticionamento;
-        this.possuiDecisaoNegativa = parsedResponse.possuiDecisaoNegativa;
-        this.possuiDocumentoImportantePeticionamento = parsedResponse.possuiDocumentoImportantePeticionamento;
-        this.possuiExigenciaCumprir = parsedResponse.possuiExigenciaCumprir;
-        this.possuiRepresentado = parsedResponse.possuiRepresentado;
-        this.protocoloInicial = parsedResponse.protocoloInicial;
-        this.recusada = parsedResponse.recusada;
-        this.servico = parsedResponse.servico;
-        this.siglaDespachoSituacao = parsedResponse.siglaDespachoSituacao;
-        this.siglaLotacaoDespachoSituacao = parsedResponse.siglaLotacaoDespachoSituacao;
-        this.siglaMobilPai = parsedResponse.siglaMobilPai;
-        this.siglaProcesso = parsedResponse.siglaProcesso;
-        this.situacao = parsedResponse.situacao;
+        const {
+        notificacoes,
+        ...otherProps
+      } = parsedResponse;
 
+      Object.assign(this, otherProps);
+
+        
 
       })
       .catch(function (error) {

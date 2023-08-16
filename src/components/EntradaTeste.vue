@@ -9,7 +9,7 @@ export default defineComponent({
   data() {
     return {
       idservico: '50000',
-      siglaDocumento: 'REQ-OFI-2023/00007',
+      siglaDocumento: 'ZZ-RHU-2023/00040',
     };
   },
   computed: {

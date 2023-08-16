@@ -16,9 +16,9 @@ export const store = createStore({
         pessoas: [
             {
                 id: 1,
-                nome: 'João',
-                cpf: '12345678910',
-                email: 'joao.exemplo@email.com'
+                nome: 'Yago de Avila',
+                cpf: '17335182743',
+                email: 'yago.exemplo@email.com'
             }
         ],
         

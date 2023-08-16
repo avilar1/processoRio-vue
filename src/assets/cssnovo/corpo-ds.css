@@ -22,6 +22,7 @@ body main {
 }
 
 .__containerDetails {
+    display: grid;
     font-size: 15px;
     font-weight: 500;
 
